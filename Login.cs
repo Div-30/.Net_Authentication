@@ -23,6 +23,11 @@ namespace THURSDAY_APP
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(emailBox.Text) || string.IsNullOrWhiteSpace(passwordBox.Text))
+            {
+                MessageBox.Show("Please enter both email and password.");
+                return;
+            }
             try
             {
                 //Insert Query
@@ -42,6 +47,7 @@ namespace THURSDAY_APP
                     {
 
                         string user_password = reader["userPassword"].ToString();
+                        string userRole = reader["userRole"].ToString();
                         //verify password
                         if (BCrypt.Net.BCrypt.Verify(passwordBox.Text.Trim(), user_password))
                         {

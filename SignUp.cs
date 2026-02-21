@@ -50,6 +50,9 @@ namespace THURSDAY_APP
                     if (rowAffected == 1)
                     {
                         MessageBox.Show("Account created successfully!");
+                        fullNameBox.Clear();
+                        emailBox.Clear();
+                        passwordBox.Clear();
                     }
                     else
                     {
